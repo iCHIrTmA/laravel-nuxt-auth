@@ -18,6 +18,7 @@ const logout = async () => {
     
     <div v-if="! isAuthenticated"class="flex items-center space-x-6">
       <NuxtLink to="/auth/login">Sign in</NuxtLink>
+      <NuxtLink to="/auth/register">Create an account</NuxtLink>
     </div>
 
     <div v-if="isAuthenticated" class="flex items-center space-x-6">
