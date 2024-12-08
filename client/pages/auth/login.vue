@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+definePageMeta({
+  middleware: ['sanctum:guest']
+})
+
 const { login } = useSanctumAuth();
 const form = reactive<LoginForm>({
     email: 'jonrue.dev@gmail.com',
