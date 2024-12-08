@@ -23,6 +23,7 @@ const logout = async () => {
 
     <div v-if="isAuthenticated" class="flex items-center space-x-6">
       <div class="font-semibold">{{ user?.name }}</div>
+      <NuxtLink to="/account">Account</NuxtLink>
       <button v-on:click="logout">Sign out</button>
     </div>
   </div>
