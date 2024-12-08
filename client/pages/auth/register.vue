@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {useSanctumClient} from "#imports";
 
 definePageMeta({
   middleware: ['sanctum:guest']
 })
 
-const sanctumFetch = useSanctumClient();
+const { register } = useAuth();
+const { refreshIdentity } = useSanctumAuth();
 
 const form = reactive<RegisterForm>({
   name: 'Ma. Eugene',
@@ -14,10 +14,10 @@ const form = reactive<RegisterForm>({
 });
 
 const submit = async () => {
-  await sanctumFetch('http://localhost:8000/register', {
-    method: 'POST',
-    body: form
-  })
+  await register(form);
+  await refreshIdentity();
+
+  await navigateTo('/dashboard');
 };
 
 </script>
