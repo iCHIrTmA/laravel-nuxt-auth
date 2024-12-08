@@ -5,6 +5,8 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false
   },
+  
+  css: ["assets/css/app.css"],
 
   devServer: {
     host: 'localhost'
@@ -13,6 +15,14 @@ export default defineNuxtConfig({
   modules: ['nuxt-auth-sanctum'],
 
   sanctum: {
-    baseUrl: 'http://localhost:8000', // Laravel API
+    baseUrl: 'http://localhost:8000' // Laravel API
+  },
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
   }
+
 })
